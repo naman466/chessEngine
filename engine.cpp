@@ -4,5 +4,7 @@
 
 int main(){
 
+    AllInit();
+
     return 0;
 }
