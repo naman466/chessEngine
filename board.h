@@ -1,7 +1,23 @@
 #ifndef BOARD_H
 #define BOARD_H
 
+#include <iostream>
 #include <cstdint>
+
+#define DEBUG 
+
+#ifndef DEBUG 
+#define ASSERT(n)
+#else 
+#define ASSERT(n) \
+if (!(n)) { \
+    std::cerr << #n << "--FAILED--"; \
+    std::cerr << " On " << __DATE__; \
+    std::cerr << " At " << __TIME__; \
+    std::cerr << " In file " << __FILE__; \
+    std::cerr << " At line " << __LINE__ << '\n'; \
+    exit(1);} 
+#endif 
 
 constexpr const char* NAME = "ENGINE 1"; // name of the engine 
 constexpr int NUM_SQUARES = 120; // no of squares in our board (includes border)
@@ -222,7 +238,7 @@ namespace Squares {
 }
 
 namespace Castling {
-    
+
     enum {
 
         /*
@@ -283,6 +299,8 @@ class Board {
     int minor_pieces[3]; // number of knights and bishops 
 
     Undo record[MAX_MOVES]; // array to store moves and information before the move was made 
+
+    int piece_list[13][10]; // piece list containing 13 types of pieces and 10 (8+2) is the maximum number of their instances
 };
 
 /*        FUNCTIONS       */

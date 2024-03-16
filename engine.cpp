@@ -21,6 +21,6 @@ int main(){
         }
         std::cout << map64to120[i] << " ";
     }
-
+    
     return 0;
 }
