@@ -24,6 +24,8 @@ constexpr int NUM_SQUARES = 120; // no of squares in our board (includes border)
 
 constexpr int MAX_MOVES = 2048; // maximum number of plys allowed in a game
 
+using Bitboard = uint64_t;
+
 /*        LOOKUP TABLES      */
 
 constexpr int map120to64[NUM_SQUARES] = {
@@ -291,7 +293,7 @@ class Board {
     int ply; // how deep we are in the current search 
     int hist_ply; // total number of ply in the game so far 
 
-    uint64_t key; // unique key generate for each position (for checking 3 fold repetition)
+    uint64_t key; // unique key generated for each position (for checking 3 fold repetition)
 
     int rem_num_pieces[13]; // number of remaining pieces on the board (13 as there are 13 types of pieces in class Piece)
     int big_pieces[3]; // number of big pieces (non pawn pieces) remaining by color (3)
@@ -304,6 +306,8 @@ class Board {
 };
 
 /*        FUNCTIONS       */
+
+extern void printBB(Bitboard PawnBB);
 
 
 #endif

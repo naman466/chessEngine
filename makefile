@@ -3,7 +3,7 @@ CXX := g++
 # Compiler flags
 CXXFLAGS := -std=c++11 -Wall -Wextra
 # Source files
-SRCS := board.cpp engine.cpp 
+SRCS := board.cpp engine.cpp bitboard.cpp
 # Object files
 OBJS := $(SRCS:.cpp=.o)
 # Executable name
